@@ -1,3 +1,4 @@
+# Closures and decorators
 ## Persisting `count` variable
 When a nested function is invoked, the entire outside function won't necessarily be invoked.
 ```python
@@ -52,7 +53,7 @@ We can modify the behaviour of a function without altering its source code. A de
 - Takes a function as its argument
 - Returns another function
 - Rebinds the name of the original function to the new function.
-```python nums
+```python {11,12,13}
 def subtract(a, b):
 	return a - b
 	
@@ -71,7 +72,7 @@ subtract = swap(subtract)
 
 print(subtract(5, 3)) # -2
 ```
-In the print statements on lines 11, 12 and 13, `(a, b)` are the arguments of `wrap_func()`, **not** `subtract()`.
+In the print statements on lines 11-13, `(a, b)` are the arguments of `wrap_func()`, **not** `subtract()`.
 ### @-syntax
 We can achieve the same effect using `@`:
 ```python
@@ -107,3 +108,34 @@ def test_decorated_func_takes_args():
 		return a + b - c
 	assert sample_func(5, 6, 7) == "4 meow!!"
 ```
+
+### Decorators with arguments
+
+^287cfe
+
+The decorator `before()` will only allow the passed function `func` to be run `n - 1` times.
+```python
+def before(n):
+    def custom_before(func):
+        count = 0
+        def counter():
+            nonlocal count
+            if count < n - 1:
+                count += 1
+                return func()
+        return counter
+    
+    return custom_before
+```
+The following test passes:
+```python
+def test_calls_3_times_then_stops():
+    @before(4)
+    def sample_function():
+        return "hello"
+    assert sample_function()
+    assert sample_function()
+    assert sample_function()
+    assert not sample_function()
+```
+In order to pass an argument to a decorator, the inner function needs to be wrapped in a second function. The innermost function is our usual wrapped function, the middle function takes the (implicit) `func` argument, and outermost function, which is the new part, takes the decorator's argument.

@@ -1,10 +1,10 @@
+# Contents
 ## Week 1
-- [Regex in python](Regex%20in%20python.md)
+- [Regex in Python](regex-in-python.md)
 
 ## Week 2
-- [Coding in virtual environments](Coding%20in%20virtual%20environments.md)
-- [Testing](Testing.md)
-- [Immutable types](Immutable%20types.md)
-- [Scope](Scope.md)
-- [Closures and decorators](Closures%20and%20decorators.md)
-
+- [Coding in a Virtual Environment](coding-in-virtual-environments.md)
+- [Testing](testing.md)
+- [Immutable Types](immutable-types.md)
+- [Scope](scope.md)
+- [Closures and Decorators](closures-and-decorators.md)
