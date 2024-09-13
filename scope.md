@@ -6,4 +6,4 @@ also available is `globals()`. This contains the namespace available to everythi
 Name resolution happens in the following order:
 > Local scope ➟ Enclosing scope ➟ Global scope ➟ Builtin scope
 
-All variables which are in the enclosing scope can be **read**, but **only** variables in the local scope can be **reassigned**. See [here](closures-and-decorators.md#Decorators-with-arguments).
+All variables which are in the enclosing scope can be **read**, but **only** variables in the local scope can be **reassigned**. See and example of this [here](closures-and-decorators.md#Decorators-with-arguments).
