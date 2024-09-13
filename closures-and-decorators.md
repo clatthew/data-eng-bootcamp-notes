@@ -110,9 +110,6 @@ def test_decorated_func_takes_args():
 ```
 
 ### Decorators with arguments
-
-^287cfe
-
 The decorator `before()` will only allow the passed function `func` to be run `n - 1` times.
 ```python
 def before(n):
