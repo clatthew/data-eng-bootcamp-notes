@@ -6,6 +6,5 @@
 - [[Testing]]
 - [[Immutable types]]
 - [[Scope]]
-- [[Closures]]
-- [[Decorators]]
+- [[Closures and decorators]]
 
