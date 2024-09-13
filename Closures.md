@@ -24,6 +24,7 @@ print(make_counter()()) # 1
 print(make_counter()()) # 1
 ```
 When the function `make_counter` is called directly, it is run each time in entirety returns the function `counter`. Then it calls `counter`, which is invoked with the second argument of `make_counter()()`.
+
 On the other hand, when we call `my_counter`, python already knows that `make_counter()` returns `counter` and doesn't fully invoke the outside function. Therefore, `count` is not re-initialised; the previous value is modified. The `count` variable is packaged with the function `count()`, even though `make_counter` was garbage collected. This is called *closure*.
 
 ### Factory functions

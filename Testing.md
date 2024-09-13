@@ -1,8 +1,11 @@
 ### Using pytest
 Tests take place within functions in the *tests* file. These functions have long, descriptive names, starting with *test*, written in `test_snake_case`.
-Use `assert` to set the condition for a test passing. This comes at the end of the function instead of return. Syntax: `assert [boolean], [message if test fails]`
+
+Use `assert` to set the condition for a test passing. This comes at the end of the function instead of return. Syntax: `assert [boolean], [message if test fails]`.
+
 Change the path variable using ``export PYTHONPATH=$(pwd)``
 Run a test using `pytest`
+
 Useful tags:
 - `-vvvrP`. This includes prints in the output and specifies which tests have passed.
 - `-k` targets a single test
@@ -51,6 +54,7 @@ Have you...
 Some functions affect change but don't return anything. Therefore we can't use their output to test for correct operation.
 #### Approach 1:
 For a function which takes a function as an argument, check that the argument function has been called the expected number of times.
+
 In the following example, a the function `repeater` takes arguments `func`, `call_count` and `arg_to_pass` but *doesn't return anything*.
 ```python
 def test_calls_the_given_function():
