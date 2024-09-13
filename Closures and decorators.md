@@ -5,9 +5,9 @@ def make_counter():
 	count = 0
 	
 	def counter():
-	nonlocal count
-	count += 1
-	return count
+		nonlocal count
+		count += 1
+		return count
 	
 	return counter
 
@@ -48,8 +48,11 @@ In this case, in `pow2` and `pow3`, `base` is packaged in the *closure* of `powe
 There is nothing in the global scope which may be beneficial.
 
 ## Decorators
-We can modify the behaviour of a function without altering its source code.
-```python
+We can modify the behaviour of a function without altering its source code. A decorator
+- Takes a function as its argument
+- Returns another function
+- Rebinds the name of the original function to the new function.
+```python nums
 def subtract(a, b):
 	return a - b
 	
@@ -68,7 +71,7 @@ subtract = swap(subtract)
 
 print(subtract(5, 3)) # -2
 ```
-In the final 3 print statements, `(a, b)` are the arguments of `wrap_func()`, **not** `subtract()`.
+In the print statements on lines 11, 12 and 13, `(a, b)` are the arguments of `wrap_func()`, **not** `subtract()`.
 ### @-syntax
 We can achieve the same effect using `@`:
 ```python
